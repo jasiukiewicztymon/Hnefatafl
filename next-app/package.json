@@ -1,0 +1,34 @@
+{
+  "name": "next-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "mocha",
+    "websocket-server": "node ./server/server.js",
+    "docs": "jsdoc -d docs --configure jsdocConf.json"
+  },
+  "dependencies": {
+    "docdash": "^2.0.2",
+    "moment": "^2.30.1",
+    "next": "14.2.1",
+    "react": "^18",
+    "react-dom": "^18",
+    "socket.io": "^4.7.5",
+    "socket.io-client": "^4.7.5",
+    "uuid": "^9.0.1",
+    "uuidv4": "^6.2.13"
+  },
+  "devDependencies": {
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.1",
+    "mocha": "^10.4.0",
+    "typescript": "^5"
+  }
+}

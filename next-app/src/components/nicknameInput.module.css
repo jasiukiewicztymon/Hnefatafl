@@ -1,0 +1,33 @@
+#nicknameInput {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+#nicknameInput input {
+    background: transparent;
+    border: 0px;
+}
+#nicknameInput span {
+    font-size: 24px;
+    padding-right: 30px;
+}
+
+#nicknameInput .input {
+    transform: rotate(-3deg);
+    position: relative;
+}
+#nicknameInput .input::before {
+    content: "";
+    position: absolute;
+    background: #C58874;
+    border: 4px solid #000;
+    z-index: -1;
+    top: -12px;
+    left: -22px;
+    width: calc(100% + 40px);
+    height: calc(100% + 20px);
+    transform: skew(-7deg);
+}

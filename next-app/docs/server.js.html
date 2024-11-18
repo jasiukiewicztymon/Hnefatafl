@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>server.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Case.html">Case</a><ul class='methods'><li data-type='method'><a href="Case.html#toObject">toObject</a></li></ul></li><li><a href="Game.html">Game</a><ul class='methods'><li data-type='method'><a href="Game.html#getGame">getGame</a></li><li data-type='method'><a href="Game.html#getMoves">getMoves</a></li><li data-type='method'><a href="Game.html#joinPlayer">joinPlayer</a></li><li data-type='method'><a href="Game.html#move">move</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#PLAYERS">PLAYERS</a></li><li><a href="global.html#checkWhite">checkWhite</a></li><li><a href="global.html#generateCode">generateCode</a></li><li><a href="global.html#io">io</a></li><li><a href="global.html#logEvent">logEvent</a></li><li><a href="global.html#showConfig">showConfig</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">server.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>const { Server } = require("socket.io");
+const {v4 : uuidv4, validate : uuidValidate} = require('uuid')
+const { Game, Case, defaultGameState11x11, defaultGameState13x13 } = require('./game')
+
+/**
+ * Affichage d'une configuration
+ * @param {object} t l'objet en question
+ * @param {string} name le nom à afficher
+ */
+function showConfig(t, name) {
+    console.log(`Configuration of the: ${name}`)
+    
+    for (let i in t) {
+        let l = "";
+        for (let j in t[i]) {
+            if (t[i][j].player != null) l += t[i][j].player;
+            else if (t[i][j].isFort) l += 'f';
+            else l += ' ';
+        }
+        console.log(l)
+    }
+    
+    console.log('')
+}
+
+// affichages des configurations
+console.log("Affichage des configurations")
+showConfig(defaultGameState11x11, 'Default 11x11')
+showConfig(defaultGameState13x13, 'Default 13x13')
+
+/**
+ * Les variables de stockage
+ * 
+ * PLAYERS - sert à stocker tout sockets des joueurs et les liées à leurs sockets 
+ * GAMES - sert à stocker toutes les parties en cours ou attente
+ * CODES - les codes déjà utilisées
+ * 
+ * Ces variables sont des dictionnaires et leurs valeurs sont vidées quand elle ne sont plus utilisées
+ */
+const PLAYERS = {}
+const GAMES = {}
+const CODES = []
+
+/**
+ * Genere un code unique selon une liste de code
+ * @param {Array} codes la liste des codes
+ * @returns le code unique
+ */
+function generateCode(codes) {
+    let lot = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    let code = '';
+    for (let i = 0; i &lt; 6; i++) {
+        code += lot[Math.floor(Math.random() * lot.length)];
+    }
+    return code;
+}
+
+/**
+ * Un log du serveur web-socket
+ * @param {string} event l'évenement
+ * @param {string} where l'endroit du code
+ * @param {string?} uuid un optionel user, possible null
+ */
+function logEvent(event, where, uuid) {
+    console.log(`${event} @ ${where} ${uuid ? `by ${uuid}` : ''}`)
+}
+
+/**
+ * Initialisation du serveur websocket
+ * Configurez le port depuis le .env
+ */
+const io = new Server({
+    cors: {
+        // on accepte toutes les origines cors à changer en cas de nécessité
+        origin: "*"
+    }
+});
+
+io.on("connection", (socket) => {
+    socket.on('party:create', (config, nick) => {
+        let code = generateCode(CODES);
+        let uuid = uuidv4();
+        
+        // sauvegarde du socket dans PLAYERS
+        PLAYERS[uuid] = socket;
+        // sauvegarde et initialisation de la partie dans GAMES
+        GAMES[code] = new Game(code, config, uuid, nick);
+
+        // renvoie des données à l'utilisateur
+        socket.emit('party:create', {
+            'status': 0,
+            'code': code,
+            'uuid': uuid
+        })
+
+        logEvent(`création d'une partie (${code})`, `party:create`, uuid);
+    })
+    socket.on('party:join', (code, nick) => {
+        if (GAMES[code] == null) {
+            socket.emit('party:join', {
+                'status': 1,
+                'error': `La partie avec le code ${code} n'existe pas`
+            })
+
+            logEvent(`essaie de jointure à une partie (${code})`, `party:join`);
+        }
+        else if (GAMES[code].state) {
+            socket.emit('party:join', {
+                'status': 1,
+                'error': `La partie avec le code ${code} est pleine`
+            })
+
+            logEvent(`essaie de jointure à une partie (${code})`, `party:join`);
+        }
+        else {
+            let uuid = uuidv4();
+
+            // sauvegarde du socket dans PLAYERS
+            PLAYERS[uuid] = socket;
+            // ajout du joueur à la partie
+            GAMES[code].joinPlayer(uuid, nick);
+
+            socket.emit('party:join', {
+                'status': 0,
+                'uuid': uuid
+            })
+
+            logEvent(`jointure à une table (${code})`, `party:join`, uuid);
+        }
+    })
+    socket.on('party:data', (uuid, code) => {
+        // envoie des données par rapport à une party
+        PLAYERS[uuid].emit('party:data', {
+            player1: GAMES[code].username1,
+            player2: GAMES[code].username2,
+            config: GAMES[code].config,
+            state: GAMES[code].state
+        })
+    })
+    socket.on('party:connection', (uuid, code) => {
+        // sauvegarde du nouveau socket liée au joueur
+        if (uuidValidate(uuid)) PLAYERS[uuid] = socket;
+        else return;
+
+        // envoie de l'état du jeu au nouveau socket
+        if (GAMES[code] != null) socket.emit('game:play', GAMES[code].getGame());
+    }) 
+});
+
+io.listen(require('./config.json').port);</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Apr 30 2024 16:22:35 GMT+0200 (heure d’été d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

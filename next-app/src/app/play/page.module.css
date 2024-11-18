@@ -1,0 +1,118 @@
+.container {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > div {
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header h1 {
+  margin-bottom: -15px;
+}
+
+#header h2 > img {
+  transform: translateY(25%);
+}
+
+#displayData {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  gap: 60px;
+  margin-top: 40px;
+}
+#displayData img {
+  width: 100px;
+}
+#displayData > div {
+  width: calc(50% - 95px);
+  display: flex;
+  flex-direction: column;
+}
+#displayData > div:first-child {
+  align-items: end;
+}
+
+.eatenPawn {
+  min-height: 50px;
+  display: flex;
+  overflow: hidden;
+  max-width: 100%;
+}
+.playerData {
+  max-width: 100%;
+}
+.playerData span {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  max-width: 100%;
+  font-size: 24px;
+}
+
+#board {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+#row {
+  display: flex;
+  justify-content: center;
+}
+#boardBox {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  max-width: 42px;
+  background: #F6F6F6;
+  position: relative;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#row:nth-child(even) #boardBox:nth-child(even) {
+  background: #C58874;
+}
+#row:nth-child(odd) #boardBox:nth-child(odd) {
+  background: #C58874;
+}
+
+.move {
+  width: 40%;
+  height: 40%;
+  background: #84C574;
+  opacity: 0.7;
+  border-radius: 50%;
+}
+
+#boardBox::before {
+  content: "";
+  position: absolute;
+  width: calc(100% + 40px);
+  height: calc(100% + 40px);
+  top: -20px;
+  left: -20px;
+  background: #434343;
+  z-index: -1;
+}
+
+#joinBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

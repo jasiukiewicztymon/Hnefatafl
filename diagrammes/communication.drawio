@@ -1,0 +1,397 @@
+<mxfile host="65bd71144e">
+    <diagram id="pLUkjHozeAwnEKRzP5gc" name="Page-1">
+        <mxGraphModel dx="1520" dy="698" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="Sw4xeCq0MFWgGotHFcd7-61" value="" style="group;fontSize=18;" parent="1" vertex="1" connectable="0">
+                    <mxGeometry x="85" y="50" width="935" height="2780" as="geometry"/>
+                </mxCell>
+                <mxCell id="2" value="&lt;h1&gt;Gestion des parties, création d'une partie&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry width="935" height="32.578125" as="geometry"/>
+                </mxCell>
+                <mxCell id="3" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="54.296875" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="4" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="293.203125" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="5" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89" y="280" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="130.3125" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="8" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="831.875" y="135.7421875" as="sourcePoint"/>
+                        <mxPoint x="831.875" y="276.9140625" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="10" value="&lt;h1&gt;Gestion des parties, joindre une partie&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="390.9375" width="935" height="32.578125" as="geometry"/>
+                </mxCell>
+                <mxCell id="11" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="445.234375" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="12" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="684.140625" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="Sw4xeCq0MFWgGotHFcd7-61" source="15" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="662.421875" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="521.25" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="" style="shape=flexArrow;endArrow=none;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" target="15" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="662.421875" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="521.25" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="Le client envoie le code de la table avec un nickname au server sur &lt;b&gt;&lt;i&gt;/party/join&lt;/i&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;fontColor=#333333;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="6.875" y="564.6875" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="831.875" y="526.6796875" as="sourcePoint"/>
+                        <mxPoint x="831.875" y="667.8515625" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="17" value="Le serveur envoie l'uuid de l'utilisateur sur&amp;nbsp;&lt;b&gt;&lt;i&gt;/party/join&lt;/i&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#333333;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="749.375" y="559.2578125" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="&lt;h1&gt;Gestion des parties, connexion à une partie&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="792.734375" width="935" height="32.578125" as="geometry"/>
+                </mxCell>
+                <mxCell id="19" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="847.03125" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="20" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1085.9375" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="21" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="Sw4xeCq0MFWgGotHFcd7-61" source="23" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="1064.21875" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="923.046875" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="22" value="" style="shape=flexArrow;endArrow=none;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" target="23" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="1064.21875" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="923.046875" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="23" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Le client envoie le code de la table avec son uuid au server sur &lt;b style=&quot;font-size: 11px;&quot;&gt;&lt;i style=&quot;font-size: 11px;&quot;&gt;/party/connection&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;fontColor=#333333;fontSize=11;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="6.875" y="966.484375" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="24" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="831.875" y="928.4765625" as="sourcePoint"/>
+                        <mxPoint x="831.875" y="1069.6484375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="25" value="Le serveur envoie les données de la partie sur&amp;nbsp;&lt;b&gt;&lt;i&gt;/party/play&lt;/i&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#333333;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="749.375" y="961.0546875" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="26" value="&lt;h1&gt;Gestion des parties, jeux&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1194.53125" width="935" height="32.578125" as="geometry"/>
+                </mxCell>
+                <mxCell id="27" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1248.828125" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="28" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1487.734375" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="29" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="Sw4xeCq0MFWgGotHFcd7-61" source="31" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="1466.015625" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="1324.84375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="30" value="" style="shape=flexArrow;endArrow=none;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" target="31" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="1466.015625" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="1324.84375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="31" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Le client envoie son mouvement avec son uuid et le code de la table au server sur &lt;b style=&quot;font-size: 11px;&quot;&gt;&lt;i style=&quot;font-size: 11px;&quot;&gt;/party/play&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;fontColor=#333333;fontSize=11;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="6.875" y="1368.28125" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="32" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="831.875" y="1330.2734375" as="sourcePoint"/>
+                        <mxPoint x="831.875" y="1471.4453125" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="33" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Le serveur envoie les données de la partie après coup aux deux joueur si le mouvement a été joué selon les règles sur&amp;nbsp;&lt;b style=&quot;font-size: 10px;&quot;&gt;&lt;i style=&quot;font-size: 10px;&quot;&gt;/party/play&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#333333;fontSize=10;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="749.375" y="1362.8515625" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcccc;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="639.375" y="1330.2734375000002" as="sourcePoint"/>
+                        <mxPoint x="639.375" y="1471.4453125000002" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="35" value="&lt;font style=&quot;font-size: 11px;&quot;&gt;Si un des joueurs gagne les informations sur la partie sont envoyé aux joueurs sur&amp;nbsp;&lt;b style=&quot;font-size: 11px;&quot;&gt;&lt;i style=&quot;font-size: 11px;&quot;&gt;/party/alert&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcccc;strokeColor=#36393d;fontColor=#333333;fontSize=11;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="556.875" y="1362.8515625" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="36" value="&lt;h1&gt;Gestion des parties, abandon&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1596.328125" width="935" height="32.578125" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1650.625" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="38" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1889.53125" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="Sw4xeCq0MFWgGotHFcd7-61" source="41" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="1867.8125" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="1726.640625" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="40" value="" style="shape=flexArrow;endArrow=none;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" target="41" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="1867.8125" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="1726.640625" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="41" value="&lt;font style=&quot;font-size: 10px;&quot;&gt;Le client envoie son abandon avec son uuid et le code de la table au server sur &lt;b style=&quot;font-size: 10px;&quot;&gt;&lt;i style=&quot;font-size: 10px;&quot;&gt;/party/play&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;fontColor=#333333;fontSize=10;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="6.875" y="1770.078125" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="831.875" y="1732.0703125" as="sourcePoint"/>
+                        <mxPoint x="831.875" y="1873.2421875" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="43" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Le serveur envoie les informations sur la partie aux deux joueurs sur&amp;nbsp;&lt;b style=&quot;font-size: 12px;&quot;&gt;&lt;i style=&quot;font-size: 12px;&quot;&gt;/party/alert&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#333333;fontSize=12;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="749.375" y="1764.6484375" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="46" value="&lt;h1&gt;Gestion des parties, requête pour rejouer&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="1998.125" width="935" height="32.578125" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="2052.421875" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="2291.328125" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="Sw4xeCq0MFWgGotHFcd7-61" source="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="2269.609375" as="sourcePoint"/>
+                        <mxPoint x="89.37499999999969" y="2128.4375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="50" value="" style="shape=flexArrow;endArrow=none;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" target="51" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.37499999999969" y="2269.609375" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="2128.4375" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="51" value="&lt;font style=&quot;font-size: 12px;&quot;&gt;Le client envoie sa requête pour rejouer avec son uuid et le code de la table au server sur &lt;b style=&quot;font-size: 12px;&quot;&gt;&lt;i style=&quot;font-size: 12px;&quot;&gt;/party/play&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;fontColor=#333333;fontSize=12;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="6.875" y="2171.875" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="52" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="831.875" y="2133.8671875" as="sourcePoint"/>
+                        <mxPoint x="831.875" y="2275.0390625" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="53" value="&lt;font style=&quot;font-size: 9px;&quot;&gt;Le serveur envoie les données d'une nouvelle partie si l'autre joueur a aussi fait la requête de rejouer sur &lt;b style=&quot;font-size: 9px;&quot;&gt;&lt;i style=&quot;font-size: 9px;&quot;&gt;/party/play&lt;/i&gt;&lt;/b&gt; dans le cas contraire seul une notification est envoyé sur&amp;nbsp;&lt;b style=&quot;font-size: 9px;&quot;&gt;&lt;i style=&quot;font-size: 9px;&quot;&gt;/party/alert&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#333333;fontSize=9;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="749.375" y="2166.4453125" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="54" value="&lt;h1&gt;Gestion des parties, réaction&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="2421.640625" width="935" height="32.578125" as="geometry"/>
+                </mxCell>
+                <mxCell id="55" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="2475.9375" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="56" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry y="2714.84375" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="57" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="Sw4xeCq0MFWgGotHFcd7-61" source="59" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="2693.125" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="2551.953125" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="58" value="" style="shape=flexArrow;endArrow=none;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" target="59" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="89.375" y="2693.125" as="sourcePoint"/>
+                        <mxPoint x="89.375" y="2551.953125" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="59" value="&lt;font style=&quot;font-size: 13px;&quot;&gt;Le client envoie sa reaction avec son uuid et le code de la table au server sur &lt;b style=&quot;font-size: 13px;&quot;&gt;&lt;i style=&quot;font-size: 13px;&quot;&gt;/party/play&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;fontColor=#333333;fontSize=13;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="6.875" y="2595.390625" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="60" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="Sw4xeCq0MFWgGotHFcd7-61" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="831.875" y="2557.3828125" as="sourcePoint"/>
+                        <mxPoint x="831.875" y="2698.5546875" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="61" value="&lt;font style=&quot;font-size: 14px;&quot;&gt;Le serveur envoie la réaction du joueur sur&amp;nbsp;&lt;b style=&quot;font-size: 14px;&quot;&gt;&lt;i style=&quot;font-size: 14px;&quot;&gt;/party/alert&lt;/i&gt;&lt;/b&gt;&lt;/font&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#333333;fontSize=14;" parent="Sw4xeCq0MFWgGotHFcd7-61" vertex="1">
+                    <mxGeometry x="749.375" y="2589.9609375" width="165" height="65.15625" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="_ckumpKtRFb9hqzo8JDa" name="Page-2">
+        <mxGraphModel dx="3040" dy="1395" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-1" value="&lt;h1&gt;Gestion des parties, création d'une partie&lt;/h1&gt;" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="50" width="680" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-2" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="100" width="680" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-3" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" parent="1" vertex="1">
+                    <mxGeometry x="85" y="320" width="680" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-4" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" parent="1" source="d-5eFVktlGmjkvLF4KCk-6" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="150" y="300" as="sourcePoint"/>
+                        <mxPoint x="150" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-5" value="" style="shape=flexArrow;endArrow=none;html=1;fillColor=#cdeb8b;strokeColor=#36393d;" parent="1" target="d-5eFVktlGmjkvLF4KCk-6" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="150" y="300" as="sourcePoint"/>
+                        <mxPoint x="150" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-6" value="Le client envoie la configuration avec un nickname au server sur &lt;b&gt;&lt;i&gt;/party/create&lt;/i&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#cdeb8b;strokeColor=#36393d;fontColor=#333333;" parent="1" vertex="1">
+                    <mxGeometry x="90" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-7" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" parent="1" edge="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="690" y="175" as="sourcePoint"/>
+                        <mxPoint x="690" y="305" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="d-5eFVktlGmjkvLF4KCk-8" value="Le serveur envoie le code de la table, l'uuid de l'utilisateur sur&amp;nbsp;&lt;b&gt;&lt;i&gt;/party/create&lt;/i&gt;&lt;/b&gt;" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#ffcc99;strokeColor=#36393d;fontColor=#333333;" parent="1" vertex="1">
+                    <mxGeometry x="630" y="205" width="120" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="vAbzarO9D9qtOHtIdpBN" name="Page-3">
+        <mxGraphModel dx="1737" dy="797" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-5" value="" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;fillColor=#d80073;strokeColor=#A50040;" edge="1" parent="1" source="2rj2JJCTATWMmelqp7HH-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="387" y="90" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-1" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Personal_Computer.svg;" vertex="1" parent="1">
+                    <mxGeometry x="227" y="150" width="45.6" height="61.800000000000004" as="geometry"/>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-6" value="" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;fillColor=#d80073;strokeColor=#A50040;" edge="1" parent="1" source="2rj2JJCTATWMmelqp7HH-2">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="420" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-2" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Personal_Computer.svg;" vertex="1" parent="1">
+                    <mxGeometry x="397" y="240" width="45.6" height="61.800000000000004" as="geometry"/>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-7" value="" style="edgeStyle=none;html=1;startArrow=classic;startFill=1;fillColor=#d80073;strokeColor=#A50040;" edge="1" parent="1" source="2rj2JJCTATWMmelqp7HH-3">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="467" y="90" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-3" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Personal_Computer.svg;" vertex="1" parent="1">
+                    <mxGeometry x="577" y="150" width="45.6" height="61.800000000000004" as="geometry"/>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-8" style="edgeStyle=none;html=1;fillColor=#60a917;strokeColor=#2D7600;" edge="1" parent="1" source="2rj2JJCTATWMmelqp7HH-4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="287" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-9" style="edgeStyle=none;html=1;fillColor=#60a917;strokeColor=#2D7600;" edge="1" parent="1" source="2rj2JJCTATWMmelqp7HH-4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="428.30000000000007" y="240" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-11" style="edgeStyle=none;html=1;fillColor=#60a917;strokeColor=#2D7600;" edge="1" parent="1" source="2rj2JJCTATWMmelqp7HH-4">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="567" y="170" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="2rj2JJCTATWMmelqp7HH-4" value="" style="points=[];aspect=fixed;html=1;align=center;shadow=0;dashed=0;image;image=img/lib/allied_telesis/computer_and_terminals/Server_Desktop.svg;" vertex="1" parent="1">
+                    <mxGeometry x="407" y="50" width="42.599999999999994" height="54" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="GrLMSEXrVL13DsvAnQYl" name="Page-4">
+        <mxGraphModel dx="2027" dy="930" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-3" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;startArrow=none;startFill=0;" edge="1" parent="1" source="4zz5_fVwYpMA_J4p4tWU-1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270.00000000000614" y="195" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-7" style="edgeStyle=none;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="4zz5_fVwYpMA_J4p4tWU-4" target="4zz5_fVwYpMA_J4p4tWU-6">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-4" value="Product backlog" style="shadow=0;dashed=0;html=1;strokeColor=#006EAF;fillColor=#1ba1e2;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.failover_plan;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="90" y="121.67" width="58.4" height="82.73" as="geometry"/>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-10" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;" edge="1" parent="1" source="4zz5_fVwYpMA_J4p4tWU-6" target="4zz5_fVwYpMA_J4p4tWU-9">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-6" value="Sprint backlog" style="shadow=0;dashed=0;html=1;strokeColor=#006EAF;fillColor=#1ba1e2;labelPosition=center;verticalLabelPosition=bottom;verticalAlign=top;align=center;outlineConnect=0;shape=mxgraph.veeam.failover_plan;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="250" y="121.67" width="58.4" height="82.73" as="geometry"/>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-12" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;startArrow=none;startFill=0;" edge="1" parent="1" source="4zz5_fVwYpMA_J4p4tWU-9" target="4zz5_fVwYpMA_J4p4tWU-11">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-9" value="Sprint" style="outlineConnect=0;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;shape=mxgraph.aws3.workdocs;fillColor=#1ba1e2;gradientDirection=north;labelBackgroundColor=none;fontColor=#ffffff;strokeColor=#006EAF;" vertex="1" parent="1">
+                    <mxGeometry x="400" y="204.71" width="72.5" height="83.04" as="geometry"/>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-13" style="edgeStyle=none;html=1;startArrow=none;startFill=0;" edge="1" parent="1" source="4zz5_fVwYpMA_J4p4tWU-11" target="4zz5_fVwYpMA_J4p4tWU-6">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="590" y="50" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="4zz5_fVwYpMA_J4p4tWU-11" value="Fin du sprint" style="verticalLabelPosition=bottom;html=1;verticalAlign=top;align=center;strokeColor=#006EAF;fillColor=#1ba1e2;shape=mxgraph.azure.git_repository;labelBackgroundColor=none;fontColor=#ffffff;" vertex="1" parent="1">
+                    <mxGeometry x="550" y="121.9" width="82.81" height="82.81" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="P1oNNtA9X_YBq1KCSG9A" name="Page-5">
+        <mxGraphModel dx="1216" dy="558" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="e12sh2UjTz8BY6EZVi3l-1" value="Websocket Server" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#d80073;fontColor=#ffffff;strokeColor=#A50040;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="99.996875" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12sh2UjTz8BY6EZVi3l-2" value="Websocket Client" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#6a00ff;fontColor=#ffffff;strokeColor=#3700CC;" vertex="1" parent="1">
+                    <mxGeometry x="40" y="338.903125" width="935" height="65.15625" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12sh2UjTz8BY6EZVi3l-3" value="" style="shape=flexArrow;endArrow=classic;html=1;fillColor=#cdeb8b;strokeColor=#36393d;startArrow=none;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="129" y="325.7" as="sourcePoint"/>
+                        <mxPoint x="129.375" y="176.0125000000001" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e12sh2UjTz8BY6EZVi3l-4" value="" style="shape=flexArrow;endArrow=classic;html=1;labelBackgroundColor=#F0F0F0;fontColor=#333333;fillColor=#ffcc99;strokeColor=#36393d;" edge="1" parent="1">
+                    <mxGeometry width="50" height="50" relative="1" as="geometry">
+                        <mxPoint x="871.875" y="181.4421875000001" as="sourcePoint"/>
+                        <mxPoint x="871.875" y="322.6140625" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

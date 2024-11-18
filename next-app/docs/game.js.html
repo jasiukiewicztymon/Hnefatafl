@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>game.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    <input type="text" id="nav-search" placeholder="Search" />
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="Case.html">Case</a><ul class='methods'><li data-type='method'><a href="Case.html#toObject">toObject</a></li></ul></li><li><a href="Game.html">Game</a><ul class='methods'><li data-type='method'><a href="Game.html#getGame">getGame</a></li><li data-type='method'><a href="Game.html#getMoves">getMoves</a></li><li data-type='method'><a href="Game.html#joinPlayer">joinPlayer</a></li><li data-type='method'><a href="Game.html#move">move</a></li></ul></li></ul><h3>Global</h3><ul><li><a href="global.html#PLAYERS">PLAYERS</a></li><li><a href="global.html#checkWhite">checkWhite</a></li><li><a href="global.html#generateCode">generateCode</a></li><li><a href="global.html#io">io</a></li><li><a href="global.html#logEvent">logEvent</a></li><li><a href="global.html#showConfig">showConfig</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">game.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// la classe case est utilisé pour la facilité d'initialisation des plateaux
+class Case {
+    /**
+     * Le constructeur d'une case
+     * @param {string} player le code du joueur, w - blanc, b - noir, k - roi, (W - commandant blanc, B - commandant noir)
+     * @param {boolean} isFort la case est un fort
+     */
+    constructor(player, isFort= false, isEnd = false) {
+        this.isFort = isFort;
+        this.isEnd = isEnd;
+        this.player = player;
+    }
+    /**
+     * Création d'un objet à partir d'une case
+     * @returns L'objet qui correspond à la case
+     */
+    toObject() {
+        return {
+            isFort: this.isFort,
+            isEnd: this.isEnd,
+            player: this.player
+        }
+    }
+}
+
+// L'état par defaut du plateau 11x11
+const defaultGameState11x11 = [
+    [ new Case(null, true, true), new Case(null), new Case(null), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case(null), new Case(null), new Case(null, true, true) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case('w'), new Case('w'), new Case('w'), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case('b'), new Case('b'), new Case(null), new Case('w'), new Case('w'), new Case('k', true), new Case('w'), new Case('w'), new Case(null), new Case('b'), new Case('b') ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case('w'), new Case('w'), new Case('w'), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null, true, true), new Case(null), new Case(null), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case(null), new Case(null), new Case(null, true, true) ],
+]
+
+// L'état par défaut du plateau 13x13
+const defaultGameState13x13 = [
+    [ new Case(null, true, true), new Case(null), new Case(null), new Case(null), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null, true, true) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case('b'), new Case('b'), new Case(null), new Case('w'), new Case('w'), new Case('w'), new Case('k', true), new Case('w'), new Case('w'), new Case('w'), new Case(null), new Case('b'), new Case('b') ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b') ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('w'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null), new Case(null) ],
+    [ new Case(null, true, true), new Case(null), new Case(null), new Case(null), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case('b'), new Case(null), new Case(null), new Case(null), new Case(null, true, true) ],
+]
+
+/**
+ * Check if white chain is sourrounded by black
+ * @param {Array} board the board of the game
+ * @param {Array} init a position in the white chain
+ * @param {Object} positions caching
+ * @returns 0 if is sourounded by black or white and -1 if there is an empty block
+ */
+function checkWhite(board, init, positions = {}) {
+    let bs = ['b'];
+
+    positions[`${init[0]}:${init[1]}`] = 1;
+
+    // returns 0 if black
+    if (bs.indexOf(board[init[0]][init[1]].player) != -1) {
+        positions[`${init[0]}:${init[1]}`] = 0;
+        return 0;
+    }
+    // returns -1 if is nothing
+    if (board[init[0]][init[1]].player == null) {
+        positions[`${init[0]}:${init[1]}`] = -1;
+        return -1;
+    }
+
+    // there is a king ub the chain
+    if (board[init[0]][init[1]].player == 'k') positions['k'] = true;
+
+    // positions of the white chain
+    // à droite
+    if (init[1] + 1 &lt; board.length) {
+        // return from cache
+        if (`${init[0]}:${init[1] + 1}` in positions) {
+            if (positions[`${init[0]}:${init[1] + 1}`] != 1) return positions[`${init[0]}:${init[1] + 1}`];
+        }
+        else if (-1 == checkWhite(board, [init[0], init[1] + 1], positions)) {
+            positions[`${init[0]}:${init[1]}`] = -1;
+            return -1;
+        }
+    }
+    // en haut
+    if (init[0] + 1 &lt; board.length) {
+        // return from cache
+        if (`${init[0] + 1}:${init[1]}` in positions) {
+            if (positions[`${init[0] + 1}:${init[1]}`] != 1) return positions[`${init[0] + 1}:${init[1]}`];
+        }
+        else if (-1 == checkWhite(board, [init[0] + 1, init[1]], positions)) {
+            positions[`${init[0]}:${init[1]}`] = -1;
+            return -1;
+        }
+    }
+    // à gauche
+    if (init[1] - 1 >= 0) {
+        // return from cache
+        if (`${init[0]}:${init[1] - 1}` in positions) {
+            if (positions[`${init[0]}:${init[1] - 1}`] != 1) return positions[`${init[0]}:${init[1] - 1}`];
+        }
+        else if (-1 == checkWhite(board, [init[0], init[1] - 1], positions)) {
+            positions[`${init[0]}:${init[1]}`] = -1;
+            return -1;
+        }
+    }
+    // en bas
+    if (init[0] - 1 >= 0){
+        // return from cache
+        if (`${init[0] - 1}:${init[1]}` in positions) {
+            if (positions[`${init[0] - 1}:${init[1]}`] != 1) return positions[`${init[0] - 1}:${init[1]}`];
+        }
+        else if (-1 == checkWhite(board, [init[0] - 1, init[1]], positions)) {
+            positions[`${init[0]}:${init[1]}`] = -1;
+            return -1;
+        }
+    } 
+
+    // ok
+    positions[`${init[0]}:${init[1]}`] = 0;
+    return 0;
+}
+
+class Game {
+    /**
+     * Initialisation de la partie
+     * @param {string} code le code nécessaire pour rejoindre la partie
+     * @param {*} config configuration de la partie
+     * @param {*} player1 l'uuid du premier joueur
+     * @param {*} player2 l'uuid du deuxième joueur
+     */
+    constructor(code, config, player1, username1) {
+        // code et configuration de la table
+        this.code = code;
+        this.config = config;
+
+        // les données des joueurs
+        this.player1 = player1;
+        this.player2 = null;
+        this.username1 = username1;
+        this.username2 = null;
+
+        // information technique pour le moteur du jeu
+        this.turn = false;
+        this.gamePlayed = 0;
+        this.board = [];
+
+        // le nombre des pions mangés
+        this.pawnEaten1 = 0;
+        this.pawnEaten2 = 0;
+
+        // l'état de la partie
+        this.state = false;
+
+        // récupération du template
+        let ref;
+        if (this.config.size == 11) ref= defaultGameState11x11;
+        else ref = defaultGameState13x13;
+
+        // on place le template dans le board
+        for (let i in ref) {
+            this.board.push([]);
+            for (let j in ref[i]) {
+                this.board[this.board.length - 1].push(ref[i][j].toObject());
+            }
+        }
+    }
+
+    /**
+     * Ajoute le deuxième joueur si la table est libre
+     * @param {string} uuid l'uuid du joueur
+     * @param {string} username le username du joueur
+     * @returns 0 si succès sinon 1
+     */
+    joinPlayer(uuid, username) {
+        if (!this.state) {
+            this.player2 = uuid;
+            this.username2 = username;
+            return 0;
+        }
+        return 1;
+    }
+
+    /**
+     * Retourne tout les mouvements possible pour le pion sur une position
+     * @param {Array} init Position du pion
+     * @returns un Array avec toutes les possibilitées
+     */
+    getMoves(init) {
+        let max = this.config.size;
+        let moves = [];
+
+        if (this.board[init[0]][init[1]].player == null) return [];
+
+        let y = 1;
+        // + y
+        while (init[1] + y &lt; max) {
+            if (this.board[init[0]][init[1] + y].player != null) break;
+            moves.push(init[0]+':'+(init[1] + y));
+            y++;
+        } 
+        y = 1;
+        // - y
+        while (init[1] - y >= 0) {
+            if (this.board[init[0]][init[1] - y].player != null) break;
+            moves.push(init[0]+':'+(init[1] - y));
+            y++;
+        } 
+        // + x
+        y = 1;
+        while (init[0] + y &lt; max) {
+            if (this.board[init[0] + y][init[1]].player != null) break;
+            moves.push((init[0] + y)+':'+init[1]);
+            y++;
+        } 
+        y = 1;
+        // - x
+        while (init[0] - y >= 0) {
+            if (this.board[init[0] - y][init[1]].player != null) break;
+            moves.push((init[0] - y)+':'+init[1]);
+            y++;
+        }
+
+        if (this.board[init[0]][init[1]].player == 'b') {
+            // supprimer les forteresses
+            if (moves.indexOf('0:0') != -1) moves.splice(moves.indexOf('0:0'), 1);
+            if (moves.indexOf(`0:${max - 1}`) != -1) moves.splice(moves.indexOf(`0:${max - 1}`), 1);
+            if (moves.indexOf(`${max - 1}:0`) != -1) moves.splice(moves.indexOf(`${max - 1}:0`), 1);
+            if (moves.indexOf(`${max - 1}:${max - 1}`) != -1) moves.splice(moves.indexOf(`${max - 1}:${max - 1}`), 1);
+            if (moves.indexOf(`${(max - 1) / 2}:${(max - 1) / 2}`) != -1) moves.splice(moves.indexOf(`${(max - 1) / 2}:${(max - 1) / 2}`), 1);
+        }
+
+        return moves;
+    }
+
+    /**
+     * Vérifie si un mouvement est légale et si cela est le cas il l'efféctue et met à jour l'état de la partie
+     * @param {*} init la position du pion
+     * @param {*} final la position vers laquel nous voulons déplacer le pion
+     * @returns 0 si tout s'est passé avec succès sinon retourne un code d'erreur
+     */
+    move(init, final) {
+        // code d'erreur 1 - on joue pas un pion
+        if (this.board[init[0]][init[1]].player == null) return 1;
+        // code d'erreur 2 - on a la même position de départ que d'arrivé
+        if (init[0] == final[0] &amp;&amp; init[1] == final[1]) return 2;
+
+        // on simplifie par une lettre à qui est le tour de jouer
+        let s = this.turn ? 'w' : 'b';
+        
+        // list des type de pion de chaque joueur pour les captures
+        let p = s != 'b' ? ['w', 'k'] : ['b'];
+        let a = s == 'b' ? ['w', 'k'] : ['b'];
+        let wp = ['w', 'k'];
+        let bp = ['b'];
+
+        // code d'erreur 3 - on essaie de jouer un noir alors que c'est aux blancs de jouer
+        if (this.board[init[0]][init[1]].player == 'b' &amp;&amp; s != 'b') return 3;
+        // code d'erreur 4 - on essaie de jouer un blanc alors que c'est aux noirs de jouer
+        if (this.board[init[0]][init[1]].player == 'w' &amp;&amp; s == 'b') return 4;
+        // code d'erreur 5 - on essaie de jouer le roi alors que c'est aux noirs de jouer
+        if (this.board[init[0]][init[1]].player == 'k' &amp;&amp; s == 'b') return 5;
+
+        // les noirs ne peuvent pas se déplacer sur une forteresse
+        if (this.board[init[0]][init[1]].player == 'b' &amp;&amp; this.board[final[0]][final[1]].isFort) return 7;
+
+        // on obtient tous les mouvements pour le pion
+        let moves = this.getMoves(init);
+
+        // la variable est vrai si le roi est mangé
+        let kingIsEaten = false, kingIsFort = false;
+
+        // vérification si le mouvement est légale
+        if (moves.indexOf(`${final[0]}:${final[1]}`) != -1) {
+            // déplacement
+            this.board[final[0]][final[1]].player = this.board[init[0]][init[1]].player;
+            this.board[init[0]][init[1]].player = null;
+
+            if (this.board[final[0]][final[1]].player == 'k' &amp;&amp; this.board[final[0]][final[1]].isEnd) kingIsFort = true;
+
+            // nb d'élimination
+            let n = 0;
+
+            // implémentation des captures
+            // on enlève la direction d'où arrive le pion
+            if (final[1] == init[1]) {
+                // le deplacement est horizontale
+                if (final[0] &lt; init[0]) {
+                    // on se déplace vers la gauche
+                    if (final[0] - 2 >= 0 &amp;&amp; (a.indexOf(this.board[final[0] - 1][final[1]].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0] - 2][final[1]].player) != -1 || this.board[final[0] - 2][final[1]].isFort))) {
+                        if (this.board[final[0] - 1][final[1]].player == 'k') kingIsEaten = true;
+                        else this.board[final[0] - 1][final[1]].player = null;
+                        n++;
+                    }
+                }
+                else {
+                    // on se déplace vers la droite
+                    if (final[0] + 2 &lt; this.config.size &amp;&amp; (a.indexOf(this.board[final[0] + 1][final[1]].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0] + 2][final[1]].player) != -1 || this.board[final[0] + 2][final[1]].isFort))) {
+                        if (this.board[final[0] + 1][final[1]].player == 'k') kingIsEaten = true;
+                        else this.board[final[0] + 1][final[1]].player = null;
+                        n++;
+                    }
+                }
+                // verification verticale
+                if (final[1] + 2 &lt; this.config.size &amp;&amp; (a.indexOf(this.board[final[0]][final[1] + 1].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0]][final[1] + 2].player) != -1 || this.board[final[0]][final[1] + 2].isFort))) {
+                    if (this.board[final[0]][final[1] + 1].player == 'k') kingIsEaten = true;
+                    else this.board[final[0]][final[1] + 1].player = null;
+                    n++;
+                }
+                if (final[1] - 2 >= 0 &amp;&amp; (a.indexOf(this.board[final[0]][final[1] - 1].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0]][final[1] - 2].player) != -1 || this.board[final[0]][final[1] - 2].isFort))) {
+                    if (this.board[final[0]][final[1] - 1].player == 'k') kingIsEaten = true;
+                    else this.board[final[0]][final[1] - 1].player = null;
+                    n++;
+                }
+            }
+            else {
+                // le déplacement est vertical
+                if (final[1] &lt; init[1]) {
+                    // on se déplace vers le bas
+                    if (final[1] - 2 >= 0 &amp;&amp; (a.indexOf(this.board[final[0]][final[1] - 1].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0]][final[1] - 2].player) != -1 || this.board[final[0]][final[1] - 2].isFort))) {
+                        if (this.board[final[0]][final[1] - 1].player == 'k') kingIsEaten = true;
+                        else this.board[final[0]][final[1] - 1].player = null;
+                        n++;
+                    }
+                }
+                else {
+                    // on se déplace vers le haut
+                    if (final[1] + 2 &lt; this.config.size &amp;&amp; (a.indexOf(this.board[final[0]][final[1] + 1].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0]][final[1] + 2].player) != -1 || this.board[final[0]][final[1] + 2].isFort))) {
+                        if (this.board[final[0]][final[1] + 1].player == 'k') kingIsEaten = true;
+                        else this.board[final[0]][final[1] + 1].player = null;
+                        n++;
+                    }
+                }
+                // verification verticale
+                if (final[0] + 2 &lt; this.config.size &amp;&amp; (a.indexOf(this.board[final[0] + 1][final[1]].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0] + 2][final[1]].player) != -1 || this.board[final[0] + 2][final[1]].isFort))) {
+                    if (this.board[final[0] + 1][final[1]].player == 'k') kingIsEaten = true;
+                    else this.board[final[0] + 1][final[1]].player = null;
+                    n++;
+                }
+                if (final[0] - 2 >= 0 &amp;&amp; (a.indexOf(this.board[final[0] - 1][final[1]].player) != -1 &amp;&amp; (p.indexOf(this.board[final[0] - 2][final[1]].player) != -1 || this.board[final[0] - 2][final[1]].isFort))) {
+                    if (this.board[final[0] - 1][final[1]].player == 'k') kingIsEaten = true;
+                    else this.board[final[0] - 1][final[1]].player = null;
+                    n++;
+                }
+            }
+
+            // ajout des pions mangés
+            if (this.gamePlayed % 2) {
+                // c'est le player1 qui est en noir voir CC
+                if (s == 'w') this.pawnEaten2 += n;
+                else this.pawnEaten1 += n;
+            }
+            else {
+                // c'est le player1 qui est en blanc voir CC
+                if (s == 'w') this.pawnEaten1 += n;
+                else this.pawnEaten2 += n;
+            }
+
+            // vérification de la victoire
+            // 1. il n'y a plus de roi victoire aux noirs
+            if (kingIsEaten) {
+                if (this.gamePlayed % 2) {
+                    // c'est le player1 qui est en noir voir CC
+                    return -1;
+                }
+                else {
+                    // c'est le player1 qui est en blanc voir CC
+                    return -2;
+                }
+            }
+            // 2. le roi est capturé avec ses soldat (seulement si c'était aux noirs de jouer)
+            if (s == 'b') {
+                // il faut vérifier les quatres côtés pour voir pour voir si c'est un groupe qui est liée au roi s'il existe
+                if (final[1] + 1 &lt; this.board.length) {
+                    if (wp.indexOf(this.board[final[0]][final[1] + 1].player) != -1 &amp;&amp; checkWhite(this.board, [final[0], final[1] + 1], {}) == 0) {
+                        if (this.gamePlayed % 2) {
+                            // c'est le player1 qui est en noir voir CC
+                            return -1;
+                        }
+                        else {
+                            // c'est le player1 qui est en blanc voir CC
+                            return -2;
+                        }
+                    }
+                }
+                // en haut
+                if (final[0] + 1 &lt; this.board.length) {
+                    if (wp.indexOf(this.board[final[0] + 1][final[1]].player) != -1 &amp;&amp; checkWhite(this.board, [final[0] + 1, final[1]], {}) == 0) {
+                        if (this.gamePlayed % 2) {
+                            // c'est le player1 qui est en noir voir CC
+                            return -1;
+                        }
+                        else {
+                            // c'est le player1 qui est en blanc voir CC
+                            return -2;
+                        }
+                    }
+                }
+                // à gauche
+                if (final[1] - 1 >= 0) {
+                    if (wp.indexOf(this.board[final[0]][final[1] - 1].player) != -1 &amp;&amp; checkWhite(this.board, [final[0], final[1] - 1], {}) == 0) {
+                        if (this.gamePlayed % 2) {
+                            // c'est le player1 qui est en noir voir CC
+                            return -1;
+                        }
+                        else {
+                            // c'est le player1 qui est en blanc voir CC
+                            return -2;
+                        }
+                    }
+                }
+                // en bas
+                if (final[0] - 1 >= 0){
+                    if (wp.indexOf(this.board[final[0] - 1][final[1]].player) != -1 &amp;&amp; checkWhite(this.board, [final[0] - 1, final[1]], {}) == 0) {
+                        if (this.gamePlayed % 2) {
+                            // c'est le player1 qui est en noir voir CC
+                            return -1;
+                        }
+                        else {
+                            // c'est le player1 qui est en blanc voir CC
+                            return -2;
+                        }
+                    }
+                } 
+            }
+
+            // 3. le roi a atteint une forterresse dans un coin
+            if (kingIsFort) {
+                if (this.gamePlayed % 2) {
+                    // c'est le player1 qui est en noir voir CC
+                    return -2;
+                }
+                else {
+                    // c'est le player1 qui est en blanc voir CC
+                    return -1;
+                }
+            }
+
+            // c'est au joueur suivant de jouer
+            this.turn = !this.turn;
+            
+            // succès
+            return 0;
+        }
+        // code d'erreur 6 - mouvement illégale
+        return 6;
+    }
+
+    /**
+     * Accesseur de l'état du jeu
+     * @returns l'état du jeu
+     */
+    getGame() {
+        return {
+            board: this.board,
+            turn: this.turn
+        }
+    }
+}
+
+// exports
+module.exports.Game = Game;
+module.exports.Case = Case;
+module.exports.defaultGameState11x11 = defaultGameState11x11;
+module.exports.defaultGameState13x13 = defaultGameState13x13;
+module.exports.checkWhite = checkWhite;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.2</a> on Tue Apr 30 2024 16:22:35 GMT+0200 (heure d’été d’Europe centrale) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+<script src="scripts/search.js" defer></script>
+
+
+
+</body>
+</html>

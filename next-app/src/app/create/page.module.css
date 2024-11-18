@@ -1,0 +1,28 @@
+.container {
+  display: flex;
+  gap: 60px;
+  flex-direction: column;
+  align-items: center;
+}
+
+.container > div {
+  max-width: 1200px;
+  width: 100%;
+  padding: 20px 50px;
+  display: flex;
+  justify-content: center;
+}
+
+#header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#header h1 {
+  margin-bottom: -15px;
+}
+
+#header h2 > img {
+  transform: translateY(25%);
+}
